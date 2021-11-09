@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 
 const imagePath = (path) => `${process.env.PUBLIC_URL}/assets/images/${path}`
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+const shuffleArray = array => array.sort(() => 0.5 - Math.random()).splice(0, 3);
 
 function usePersistedState(key, defaultValue) {
   const [state, setState] = useState(() => {
@@ -14,4 +15,23 @@ function usePersistedState(key, defaultValue) {
   return [state, setState];
 }
 
-export {imagePath, usePersistedState, sleep};
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 1200,
+    },
+    {
+      breakpoint: 10000,
+      settings: 'unslick'
+    }
+  ]
+};
+
+export {imagePath, usePersistedState, sleep, shuffleArray, sliderSettings};

@@ -13,7 +13,7 @@ export default function Fullscreen({children, layout = {backButton: true, closeB
             <Logo/>
           </Link>
           {layout.backButton && <BackButton/>}
-          {layout.closeButton && <CloseButton onClick={() => layout.closeHandler()}/>}
+          {layout.closeButton && <CloseButton onClick={() => layout.closeHandler && layout.closeHandler()}/>}
         </div>
       </header>
       <main className={classNames({'site-content': true, 'fullscreen-site-content': true, [layout.class]: true})}>

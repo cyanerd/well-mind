@@ -4,26 +4,9 @@ import {Link} from 'react-router-dom';
 import Default from '../layouts/Default';
 import Accordion from '../components/accordion/Accordion';
 import Slider from 'react-slick';
+import {sliderSettings} from '../helper';
 
 export default function Main() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    adaptiveHeight: true,
-    responsive: [
-      {
-        breakpoint: 1200,
-      },
-      {
-        breakpoint: 10000,
-        settings: 'unslick'
-      }
-    ]
-  };
   return (
     <Default>
       <div className="about-section-background">
@@ -49,7 +32,7 @@ export default function Main() {
       </div>
       <div className="problems-section section">
         <h2>Решите ваши проблемы<br/> вместе с нами</h2>
-        <Slider {...settings} className="problems-list">
+        <Slider {...sliderSettings} className="problems-list">
           <div className="problem">
             <img src={imagePath('problems/1.png')} alt="Well mind" width="194px" style={{paddingTop: '16px'}}/>
             <span>Снять тревогу и стресс</span>

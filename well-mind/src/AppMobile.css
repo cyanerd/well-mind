@@ -21,7 +21,7 @@
     .hide-desktop {
         display: block;
     }
-    
+
     .hide-desktop-inline {
         display: inline;
     }
@@ -56,17 +56,17 @@
         height: 45px;
     }
 
-    header {
+    header:not(.shepherd-header) {
         padding-top: 5px;
         padding-bottom: 5px;
         border-bottom: 1px solid #e6e2e2;
     }
 
-    header .nav {
+    header:not(.shepherd-header) .nav {
         display: none;
     }
 
-    header .nav.opened {
+    header:not(.shepherd-header) .nav.opened {
         padding-left: 18px;
         padding-right: 18px;
         padding-top: 30px;
@@ -81,7 +81,7 @@
         border-radius: 0 15px 15px 0;
     }
 
-    header .nav:before {
+    header:not(.shepherd-header) .nav:before {
         content: '';
         border-bottom: 18px solid #fff;
         border-left: 14px solid transparent;
@@ -94,7 +94,7 @@
         z-index: 2;
     }
 
-    header .nav:after {
+    header:not(.shepherd-header) .nav:after {
         content: '';
         z-index: 1;
         border-bottom: 11px solid #e5e2e2;
@@ -107,7 +107,7 @@
         left: 12px;
     }
 
-    header .nav li {
+    header:not(.shepherd-header) .nav li {
         margin-bottom: 30px;
     }
 
@@ -117,8 +117,10 @@
     }
 
     h2 {
-        font-size: 18px;
-        line-height: 22px;
+        /*font-size: 18px;*/
+        /*line-height: 22px;*/
+        font-size: 24px;
+        line-height: 29px;
         margin-bottom: 22px;
     }
 
@@ -467,7 +469,7 @@
         height: 25px;
     }
 
-    header > .section {
+    header:not(.shepherd-header) > .section {
         padding-top: 5px;
     }
 
@@ -477,6 +479,10 @@
 
     .fullscreen-site-content {
         padding-top: 30px;
+        background-size: 150px, 240px;
+        background-position: right top 30px, left bottom;
+        background-image: url('images/main-page-background-2.png'), url('images/background.png');
+        background-repeat: no-repeat, no-repeat;
     }
 
     .fullscreen h2 {
@@ -515,5 +521,211 @@
 
     .fullscreen .actions-container {
         padding: 0 25px;
+    }
+
+    .grades:before {
+        display: none;
+    }
+
+    .grades {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .grades div {
+        padding-top: 0;
+        padding-left: 37px;
+        margin-bottom: 20px;
+    }
+
+    .grades div:before {
+        width: 20px;
+        height: 20px;
+        background-size: 50%;
+        top: 50%;
+        margin-top: -10px;
+    }
+
+    .test-intro .centered-btn-container {
+        margin-top: 30px;
+    }
+
+    ._two-columns {
+        flex-direction: column;
+    }
+
+    ._two-columns > p {
+        flex-basis: 100%;
+    }
+
+    .lesson-card {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .library-card {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .lessons-list {
+        margin-bottom: 40px;
+    }
+
+    .library-list {
+        margin-bottom: 40px;
+    }
+
+    .program-page .centered-btn-container {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .program-text {
+        margin-bottom: 30px;
+    }
+
+    .program-text p {
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+    .shepherd-title, .shepherd-text {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .shepherd-title {
+        margin-bottom: 5px;
+    }
+
+    .shepherd-content {
+        padding: 10px;
+    }
+
+    .shepherd-enabled.shepherd-element {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .shepherd-button.shepherd-button-secondary {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .btn.shepherd-button {
+        font-size: 16px;
+        line-height: 20px;
+        padding: 12px 18px;
+    }
+
+    .shepherd-element[data-popper-placement^=bottom] > .shepherd-arrow {
+        margin-left: -40px;
+    }
+
+    .profile-dashboard-top {
+        background-image: none;
+        padding-top: 10px;
+        padding-bottom: 0;
+        margin-bottom: 10px;
+        box-shadow: -3px 4px 4px rgba(215, 215, 215, 0.25);
+    }
+
+    .profile-avatar {
+        margin-bottom: 14px;
+    }
+
+    .profile-avatar img {
+        width: 71px;
+    }
+
+    .profile-label {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+
+    .profile-value {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .profile-status-container {
+        display: block;
+        padding-top: 14px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        border: 2px solid #FF7E66;
+        box-sizing: border-box;
+        box-shadow: -3px 4px 4px rgba(215, 215, 215, 0.25);
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .profile-status-container .profile-statuses {
+        justify-content: center;
+    }
+
+    .profile-buttons .btn {
+        background-color: #fff;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 12px;
+        box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .profile-buttons .btn span {
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        font-weight: 600;
+    }
+
+    .profile-buttons .btn span.btn-icon-prepend svg path,
+    .profile-buttons .btn span.btn-icon-append svg path {
+        fill: #FF7E66;
+    }
+
+    .profile-buttons .btn span.btn-icon-prepend {
+        left: 15px;
+    }
+
+    .profile-buttons .btn span.btn-icon-append {
+        right: 15px;
+    }
+
+    .profile-buttons .btn:last-child {
+        margin-top: 27px;
+        background-color: #C7C5C5;
+        box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .profile-buttons .btn:last-child span {
+        color: #fff;
+    }
+
+    .profile-phone-block {
+        background: #FFFFFF;
+        box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 27.5px;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 27px;
+    }
+
+    .profile-phone-block .profile-label,
+    .profile-phone-block .profile-value {
+        margin-bottom: 0;
+    }
+
+    .close-button svg {
+        width: 20px !important;
+        height: 20px !important;
     }
 }

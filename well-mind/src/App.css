@@ -60,7 +60,7 @@ a.logo {
     display: block;
 }
 
-header > .section {
+header:not(.shepherd-header) > .section {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -71,11 +71,11 @@ header > .section {
     padding-top: 60px;
 }
 
-header .nav {
+header:not(.shepherd-header) .nav {
     display: flex;
 }
 
-header .nav a {
+header:not(.shepherd-header) .nav a {
     margin: 0 15px;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -106,6 +106,27 @@ header .nav a {
     display: inline-block;
     padding: 15px 18px;
     filter: drop-shadow(-1px 2px 4px rgba(0, 0, 0, 0.25));
+    position: relative;
+}
+
+.btn span.btn-icon-prepend,
+.btn span.btn-icon-append {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn span.btn-icon-prepend {
+    left: 13px;
+}
+
+.btn span.btn-icon-append {
+    right: 13px;
 }
 
 .btn:hover, .btn.shepherd-button:hover {
@@ -142,7 +163,7 @@ header .nav a {
     position: relative;
 }
 
-.btn svg {
+.btn svg.preloader {
     display: none;
     transition: opacity 1s;
     position: absolute;
@@ -152,7 +173,7 @@ header .nav a {
     margin-left: -15px;
 }
 
-.btn svg path, .btn svg rect {
+.btn svg.preloader path, .btn svg.preloader rect {
     fill: #fff;
 }
 
@@ -611,7 +632,7 @@ input[type="text"], input[type="password"] {
 }
 
 .input.error input {
-    outline-color: #FC411E;
+    outline-color: #fc411e;
 }
 
 .input-container {
@@ -708,7 +729,7 @@ input[type="text"], input[type="password"] {
 }
 
 .checkbox-container input[type="checkbox"].error + label:before {
-    outline-color: #FC411E;
+    outline-color: #fc411e;
 }
 
 .checkbox-container label:after {
@@ -748,17 +769,22 @@ input[type="text"], input[type="password"] {
     box-shadow: 0 1px 5px rgba(255, 255, 255, 0.5), inset 0 4px 4px rgba(255, 255, 255, 0.25), inset 0 0 40px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
+    padding: 40px 30px;
+}
+
+.shepherd-footer {
+    padding: 0;
 }
 
 .shepherd-element {
     background: none;
     max-width: 840px;
+    box-shadow: none;
 }
 
 .shepherd-has-title .shepherd-content .shepherd-header {
     background: none;
-    padding: 40px 30px;
-    padding-bottom: 0;
+    padding: 0;
 }
 
 .shepherd-arrow:before {
@@ -770,6 +796,9 @@ input[type="text"], input[type="password"] {
     width: 60px;
     height: 93px;
     background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .shepherd-title {
@@ -789,8 +818,8 @@ input[type="text"], input[type="password"] {
     font-size: 24px;
     line-height: 29px;
     color: #fff;
-    padding: 30px;
-    padding-top: 0;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
 .shepherd-button.shepherd-button-secondary {
@@ -810,8 +839,12 @@ input[type="text"], input[type="password"] {
     text-decoration: none;
 }
 
-.shepherd-enabled.shepherd-element {
+.shepherd-enabled.shepherd-element[data-popper-placement="bottom"] {
     margin-top: 125px !important;
+}
+
+.shepherd-enabled.shepherd-element[data-popper-placement="top"] {
+    margin-bottom: 125px !important;
 }
 
 .shepherd-button-back, .shepherd-button:not(:disabled).shepherd-button-back:hover {
@@ -825,6 +858,12 @@ input[type="text"], input[type="password"] {
 .shepherd-element[data-popper-placement^=bottom] > .shepherd-arrow {
     top: -105px;
     margin-left: -70px;
+}
+
+.shepherd-element[data-popper-placement^=top] > .shepherd-arrow {
+    bottom: -105px;
+    margin-left: -70px;
+    background-image: url('images/icons/tour-arrow-2.svg');
 }
 
 .grades {
@@ -914,6 +953,7 @@ input[type="text"], input[type="password"] {
 .test-container {
     margin: 0 auto;
     max-width: 420px;
+    padding-bottom: 60px;
 }
 
 .answers-list {
@@ -1093,10 +1133,6 @@ input[type="text"], input[type="password"] {
     flex: 1 1;
 }
 
-.slick-dots {
-    bottom: -20px;
-}
-
 .slick-dots li {
     margin: 0;
     width: 16px;
@@ -1112,7 +1148,7 @@ input[type="text"], input[type="password"] {
     width: 16px;
     font-size: 7px;
     opacity: 1;
-    color: #C7C5C5;
+    color: #c7c5c5;
 }
 
 .slick-dots li.slick-active button:before {
@@ -1125,7 +1161,7 @@ input[type="text"], input[type="password"] {
 }
 
 .fullscreen-header {
-    border-bottom: 1px solid #E6E2E2;
+    border-bottom: 1px solid #e6e2e2;
 }
 
 .input {
@@ -1137,7 +1173,7 @@ input[type="text"], input[type="password"] {
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-    color: #FE0808;
+    color: #fe0808;
     display: none;
     position: absolute;
     top: -22px;
@@ -1146,4 +1182,290 @@ input[type="text"], input[type="password"] {
 
 .input.error .input-error {
     display: block;
+}
+
+.test-intro .centered-btn-container {
+    margin-top: 60px;
+}
+
+._two-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+._two-columns > p {
+    flex-basis: 49%;
+}
+
+.program-text p {
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.program-text {
+    margin-bottom: 60px;
+}
+
+.lessons-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.lesson-card {
+    width: 230px;
+    flex-basis: 243px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    background-color: #fff;
+    box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 15px 16px;
+    padding-bottom: 20px;
+    position: relative;
+    background-image: url('images/lessons/general.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    user-select: none;
+    cursor: pointer;
+}
+
+.lesson-card-completed {
+    background-color: #aee78b;
+    background-image: url('images/lessons/completed.svg');
+}
+
+.lesson-card-disabled {
+    background-color: #c7c5c5;
+    background-image: url('images/lessons/disabled.svg');
+    cursor: default;
+    color: #fff;
+}
+
+.lesson-card .day-number {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0a005a;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.lesson-card .day-number span {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.lesson-card .goal {
+    margin-top: 20px;
+    height: 85px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000;
+}
+
+.lesson-card .link {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration-line: underline;
+    color: #0a005a;
+}
+
+.lesson-card .link-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.lesson-card-disabled .day-number,
+.lesson-card-disabled .goal,
+.lesson-card-disabled .link,
+.lesson-card-disabled .link:hover {
+    color: #fff;
+    cursor: default;
+}
+
+.library-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.library-card {
+    margin-right: 35px;
+    margin-bottom: 30px;
+    flex-basis: 285px;
+    padding: 20px;
+    padding-bottom: 22px;
+    position: relative;
+    background: #f1f1f1;
+    border: 2px solid #fda59c;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.library-card-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+.library-card-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000;
+    height: 148px;
+}
+
+.library-card .centered-btn-container {
+    margin-top: 20px;
+}
+
+.library-card-button {
+    background: #f1f1f1;
+    border: 2px solid #fda59c;
+    box-sizing: border-box;
+    box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 11px 41px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000;
+    display: inline-block;
+}
+
+.slick-list {
+    margin: 0 -15px;
+}
+
+.slick-slider {
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.slick-slide > div {
+    padding: 0 15px;
+}
+
+.slick-dots {
+    bottom: 0;
+}
+
+.program-page .centered-btn-container {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.profile-dashboard {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.profile-dashboard-top {
+    padding-top: 15px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: -3px 4px 4px rgba(215, 215, 215, 0.25);
+    border-radius: 15px;
+    background-image: url('images/profile-background.png');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 40px;
+    padding-bottom: 60px;
+}
+
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.profile-status-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.profile-label {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0a005a;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+.profile-value {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000;
+}
+
+.profile-status-container .profile-statuses {
+    display: flex;
+}
+
+.profile-status {
+    margin-right: 18px;
+    padding-left: 19px;
+    position: relative;
+}
+
+.profile-status-container .profile-statuses .profile-status:last-child {
+    margin-right: 0;
+}
+
+.profile-status:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: #ccc;
+}
+
+.profile-status-success:before {
+    background-color: #aee78b;
+}
+
+.profile-status-error:before {
+    background-color: #fc411e;
+}
+
+.profile-avatar img {
+    width: 121px;
+}
+
+.profile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.profile-buttons .btn {
+    width: 48%;
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 22px;
 }

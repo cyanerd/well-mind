@@ -3,8 +3,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import Tour from './components/tour/Tour';
-import ScrollToTop from './ScrollToTop';
+import RouterApi from './RouterApi';
 
 // pages
 import Main from './pages/Main';
@@ -14,6 +13,8 @@ import Test from './pages/Test';
 import Contacts from './pages/Contacts';
 import Policy from './pages/Policy';
 import Offer from './pages/Offer';
+import Program from './pages/Program';
+import Profile from './pages/Profile';
 
 // assets
 import './App.css';
@@ -22,19 +23,20 @@ import './AppMobile.css';
 export default function App() {
   return (
     <>
-      <Tour/>
       <Router>
-        <ScrollToTop>
+        <RouterApi>
           <Switch>
             <Route path="/login" component={Login}/>
             <Route path="/test" component={Test}/>
             <Route path="/contacts" component={Contacts}/>
             <Route path="/policy" component={Policy}/>
             <Route path="/offer" component={Offer}/>
+            <Route path="/program" component={Program}/>
+            <Route path="/profile" component={Profile}/>
             <Route exact path="/" component={Main}/>
             <Route path="*" component={NoMatch}/>
           </Switch>
-        </ScrollToTop>
+        </RouterApi>
       </Router>
     </>
   );
