@@ -16,11 +16,11 @@ export default function RestoreFormPassword({phone, mode = 'restore'}) {
 
   const login = async (user) => {
     dispatch(setUser(user));
-    // await sleep(500); // иначе не успевает установиться пользователь и его снова выкидывает на /login
     history.push('/profile?from=login');
   }
 
-  const submit = async () => {
+  const submit = async (e) => {
+    e.preventDefault();
     setErrors(defaultErrors);
     const checkResult = defaultErrors;
     if (!password.length) {
@@ -44,7 +44,7 @@ export default function RestoreFormPassword({phone, mode = 'restore'}) {
     }
   }
   return (
-    <form autoComplete="off" className="login-password-form">
+    <form onSubmit={submit} autoComplete="off" className="login-password-form">
       <h2>
         {mode === 'restore' && 'Восстановление доступа'}
         {mode === 'change' && 'Смена пароля'}

@@ -143,7 +143,7 @@ header:not(.shepherd-header) .nav a {
 }
 
 .btn.btn-gray {
-    background: #C7C5C5;
+    background: #c7c5c5;
     color: #fff;
 }
 
@@ -1092,7 +1092,7 @@ input[type="text"], input[type="password"] {
     margin-left: 130px;
 }
 
-.text-page p {
+.text-page p, .text-page {
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -1487,7 +1487,7 @@ input[type="text"], input[type="password"] {
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
-    color: #0A005A;
+    color: #0a005a;
     font-family: 'Montserrat', sans-serif;
     position: relative;
     margin-bottom: 15px;
@@ -1498,7 +1498,7 @@ input[type="text"], input[type="password"] {
     display: block;
     width: 70px;
     height: 3px;
-    background: #0A005A;
+    background: #0a005a;
     position: absolute;
     left: 30px;
     bottom: 7px;
@@ -1514,7 +1514,7 @@ input[type="text"], input[type="password"] {
     font-size: 18px;
     line-height: 21px;
     text-decoration-line: underline;
-    color: #000000;
+    color: #000;
 }
 
 .program-item-goal {
@@ -1523,7 +1523,7 @@ input[type="text"], input[type="password"] {
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
-    color: #0A005A;
+    color: #0a005a;
 }
 
 .program-item-buttons {
@@ -1537,4 +1537,78 @@ input[type="text"], input[type="password"] {
 
 .program-item-buttons .btn-blue {
     max-width: 400px;
+}
+
+.profile-buttons-payment .btn:nth-child(3) {
+    width: 100%;
+}
+
+.profile-buttons-payment .btn span.btn-icon-append {
+    display: none;
+}
+
+.profile-buttons-payment .btn:nth-child(3) span.btn-icon-prepend {
+    display: none;
+}
+
+.gray-text {
+    font-size: 16px;
+    color: #3b3b3b;
+}
+
+.program-lessons-list {
+    margin-bottom: 60px;
+}
+
+.program-library-list {
+    margin-bottom: 35px;
+}
+
+.fullscreen-separated .promo-phone-form .caption-description {
+    min-height: auto;
+}
+
+.fullscreen-separated .left-block {
+    padding-bottom: 60px;
+}
+
+.promo-success-text p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.promo-success-text p:first-child {
+    margin-bottom: 60px;
+}
+
+.promo-success-text {
+    max-width: 660px;
+}
+
+.promo-success-text p h2 {
+    display: inline;
+    font-size: 36px;
+    line-height: 42px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.promo-success-text p a {
+    text-decoration: underline;
+}
+
+.test-intro .centered-btn-container .btn {
+    max-width: 330px;
+    width: 100%;
+}
+
+.test-result-page .centered-btn-container {
+    margin-top: 60px;
+}
+
+.test-result-page .centered-btn-container .btn {
+    max-width: 330px;
+    width: 100%;
 }

@@ -16,13 +16,15 @@ export default function TourStart({tour}) {
   }));
 
   const startTour = () => {
+    console.log('tour started!');
     eventBus.dispatch('TOUR_START');
     tour.start();
   }
 
   useEffect(() => {
     (!isTourCompleted || FORCE_START) && startTour();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return null;
 }

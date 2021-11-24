@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import Navigation from '../components/app/Navigation';
 import Footer from '../components/app/Footer';
 import ProfileLink from '../components/ProfileLink';

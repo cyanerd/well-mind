@@ -1,16 +1,19 @@
 import Button from '../Button';
 import Default from '../../layouts/Default';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {startTest} from '../../redux/test'
 
 export default function TestIntro() {
   const dispatch = useDispatch();
+  const questions = useSelector(state => state.test.questions);
+
   return (
     <Default>
       <div className="inner-page test-intro">
         <div className="section">
           <h2>Определение<br/> психологического портрета </h2>
-          <p className="hide-mobile" style={{maxWidth: '950px'}}>Пройдите простой тест, состоящий из 30 вопросов - его выполнение
+          <p className="hide-mobile" style={{maxWidth: '950px'}}>Пройдите простой тест, состоящий из {questions.length} вопросов -
+            его выполнение
             займет у вас не более 15
             минут. Исходя из его результатов, мы определим вашу проблему и подберем программу упражнений, подходящую именно
             вам.<br/>
@@ -30,11 +33,11 @@ export default function TestIntro() {
             <div>идеально описывает меня</div>
           </div>
           <p style={{textAlign: 'center', maxWidth: '590px', margin: '0 auto', padding: '0 20px'}}>
-            Отвечайте честно и первое, что приходит вам на ум. Тагда мы сможем наиболее точно определить Ваш психологический
+            Отвечайте честно и первое, что приходит вам на ум. Тогда мы сможем наиболее точно определить Ваш психологический
             портрет.
           </p>
           <div className="centered-btn-container">
-            <Button onClick={() => dispatch(startTest())} style={{maxWidth: '330px', width: '100%'}}>Начать тест</Button>
+            <Button onClick={() => dispatch(startTest())}>Начать тест</Button>
           </div>
         </div>
       </div>

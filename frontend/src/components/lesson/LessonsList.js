@@ -1,92 +1,21 @@
 import LessonCard from './LessonCard';
 import Button from '../Button';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import {sliderSettings} from '../../helper';
+import api from '../../Api';
 
 export default function LessonsList() {
-  const lessons = [
-    {
-      id: 1,
-      day: 1,
-      goal: 'Расслабиться, успокоиться',
-      status: 'completed'
-    },
-    {
-      id: 2,
-      day: 2,
-      goal: 'Самопомощь, разложить по полочкам, найти решение',
-      status: 'general'
-    },
-    {
-      id: 3,
-      day: 3,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 4,
-      day: 4,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 5,
-      day: 5,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 6,
-      day: 6,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 7,
-      day: 7,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 8,
-      day: 8,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 9,
-      day: 9,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 10,
-      day: 10,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 11,
-      day: 11,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 12,
-      day: 12,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    },
-    {
-      id: 13,
-      day: 13,
-      goal: 'Самопомощь, разложить по полочкам, найти решение Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur massa nisi, convallis et varius vitae, congue id risus',
-      status: 'disabled'
-    }
-  ];
+  const [lessons, setLessons] = useState([]);
+  const {response} = api.useAxios('get_schemas_exercises_list');
+  useEffect(() => {
+    if (response?.list) setLessons(Object.values(response.list));
+  }, [response]);
   const perRow = 5;
-  const [visibleLessons, setVisibleLessons] = useState(lessons.slice(0, perRow));
+  const [visibleLessons, setVisibleLessons] = useState([]);
+  useEffect(() => {
+    setVisibleLessons(lessons.slice(0, perRow));
+  }, [lessons])
   return (
     <>
       <Slider {...sliderSettings} className="lessons-list">

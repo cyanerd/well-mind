@@ -1,11 +1,5 @@
-import TestIntro from '../components/test/TestIntro';
-import TestStep from '../components/test/TestStep';
-import TestResult from '../components/test/TestResult';
-import {useSelector} from 'react-redux';
+import TestPage from '../components/TestPage';
 
 export default function Test() {
-  const mode = useSelector(state => state.test.mode);
-  if (mode === 'test') return <TestStep/>;
-  if (mode === 'finish') return <TestResult/>;
-  return <TestIntro/>;
+  return <TestPage/>;
 }

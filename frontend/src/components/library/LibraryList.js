@@ -1,35 +1,21 @@
 import {Link} from 'react-router-dom';
+import api from '../../Api';
+import {useState, useEffect} from 'react';
 
 export default function LibraryCards() {
-  const items = [
-    {
-      id: 1,
-      title: 'Тревога',
-    },
-    {
-      id: 2,
-      title: 'Успех',
-    },
-    {
-      id: 3,
-      title: 'Страх',
-    },
-    {
-      id: 4,
-      title: 'Сова',
-    },
-    {
-      id: 5,
-      title: 'Удод',
-    },
-  ];
-  const data = items.sort((a, b) => a.title.localeCompare(b.title)).reduce((r, e) => {
-    let group = e.title[0];
-    if (!r[group]) r[group] = {group, children: [e]}
-    else r[group].children.push(e);
-    return r;
-  }, {})
-  const groups = Object.values(data);
+  const { response } = api.useAxios('get_library_list');
+  const [groups, setGroups] = useState([]);
+  useEffect(() => {
+    if (response?.list?.length) {
+      const data = response.list.sort((a, b) => a.name.localeCompare(b.name)).reduce((r, e) => {
+        let group = e.name[0];
+        if (!r[group]) r[group] = {group, children: [e]}
+        else r[group].children.push(e);
+        return r;
+      }, {});
+      setGroups(Object.values(data));
+    }
+  }, [response]);
 
   return (
     <>
@@ -40,7 +26,7 @@ export default function LibraryCards() {
             {group.children.map(item => (
               <div key={item.id} className="library-group-items">
                 <div className="library-group-item">
-                  <Link to={`/library/${item.id}`}>{item.title}</Link>
+                  <Link to={`/library/${item.code}`}>{item.name}</Link>
                 </div>
               </div>
             ))}

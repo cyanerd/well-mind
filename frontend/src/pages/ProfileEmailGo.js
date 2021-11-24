@@ -8,11 +8,11 @@ export default function ProfileEmailGo() {
 
   useEffect(() => {
     const fetchData = async () => {
-      return await api.request('get_link_to_mail');
+      const response = await api.request('get_link_to_mail');
+      if (response.link) window.location.href = response.link;
+      else history.push('/profile?from=login');
     }
-    const response = fetchData();
-    if (response.link) window.location.href = response.link;
-    else history.push('/profile?from=login');
+    fetchData();
   }, [history]);
 
   return (

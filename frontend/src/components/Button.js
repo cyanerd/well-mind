@@ -11,7 +11,7 @@ export default function Button(props) {
     e.preventDefault();
     if (props.disabled || isLoading || !props.onClick) return;
     setLoading(true);
-    await props.onClick();
+    await props.onClick(e);
     setLoading(false);
   }
 

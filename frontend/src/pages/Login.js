@@ -3,69 +3,40 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import AgreementText from '../components/app/AgreementText';
 import api from '../Api';
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import classNames from 'classnames/bind';
 import {setUser} from '../redux/app';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-// import {sleep} from '../helper';
 import RestoreFormPassword from '../components/forms/RestoreFormPassword';
-
-function useInterval(callback, trigger) {
-  const savedCallback = useRef();
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  });
-
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
-    }
-
-    let id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [trigger]);
-}
+import {getURLParamValue, useInterval} from '../helper';
 
 export default function Login() {
+  const phoneFromPromo = getURLParamValue('phone');
   const [step, setStep] = useState('phone');
   const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
 
+  useEffect(() => {
+    if (step === 'phone' && phoneFromPromo) {
+      setPhone(phoneFromPromo);
+      setStep('password');
+    }
+  }, []);
+
   const login = async (user) => {
     dispatch(setUser(user));
-    // await sleep(500); // иначе не успевает установиться пользователь и его снова выкидывает на /login
     history.push('/profile?from=login');
   }
 
-  /*const PhoneForm = () => {
-    return (
-      <>
-        <h2>Вход и регистрация</h2>
-        <div className="caption-description">Войдите, чтобы подобрать программу</div>
-        <div className="input-description">Введите свой номер телефона</div>
-        <div className="input-container">
-          <Input type="text" mask="+7 (999) 999-99-99" name="phone" maskChar={null}/>
-          <Button onClick={submit}>Отправить</Button>
-        </div>
-        <div className="checkbox-container">
-          <input type="checkbox" name="agreement" id="agreement"/>
-          <label htmlFor="agreement">Нажимая на кнопку “Продолжить” Вы принимаете <a href="#">Условия использования сервиса
-            “Well-mind”</a>, даете <a href="#">согласие на обработку своих персональных данных</a> и соглашаетесь с
-            условиями <a href="#">политики конфиденциальности</a></label>
-        </div>
-      </>
-    );
-  }*/
-
   const PhoneForm = ({setStep, setPhone}) => {
     const [agreement, setAgreement] = useState(true);
-    const [phone, setCurrentPhone] = useState(''); // 79059178877
+    const [phone, setCurrentPhone] = useState('');
     const defaultErrors = {phone: false, agreement: false};
     const [errors, setErrors] = useState(defaultErrors);
-    const submit = async () => {
+    const submit = async (e) => {
+      e.preventDefault();
       setErrors(defaultErrors);
       const checkResult = defaultErrors;
       if (!phone.length) {
@@ -92,7 +63,7 @@ export default function Login() {
       }
     }
     return (
-      <form autoComplete="off" className="login-phone-form">
+      <form onSubmit={submit} autoComplete="off" className="login-phone-form">
         <h2>Вход или регистрация</h2>
         <div className="caption-description">Введите номер телефона <span
           className="hide-desktop-inline">для входа или регистрации</span></div>
@@ -138,7 +109,8 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const defaultErrors = {password: false};
     const [errors, setErrors] = useState(defaultErrors);
-    const submit = async () => {
+    const submit = async (e) => {
+      e.preventDefault();
       setErrors(defaultErrors);
       const checkResult = defaultErrors;
       if (!password.length) {
@@ -156,7 +128,7 @@ export default function Login() {
       login(response.user);
     }
     return (
-      <form autoComplete="off" className="login-password-form">
+      <form onSubmit={submit} autoComplete="off" className="login-password-form">
         <h2>Вход</h2>
         <div className="caption-description">Данный номер телефона уже зарегистрирован, введите пароль для входа</div>
         <div className="actions-container">
@@ -228,7 +200,9 @@ export default function Login() {
       setStep('new_password');
     }
     return (
-      <form autoComplete="off" className="login-password-form">
+      <form onSubmit={(e) => {
+        e.preventDefault();
+      }} autoComplete="off" className="login-password-form">
         <h2>Восстановление доступа</h2>
         <div className="caption-description">Чтобы создать новый пароль введите код из смс</div>
         <div className="actions-container">
@@ -263,7 +237,8 @@ export default function Login() {
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const defaultErrors = {password: false, passwordConfirm: false};
     const [errors, setErrors] = useState(defaultErrors);
-    const submit = async () => {
+    const submit = async (e) => {
+      e.preventDefault();
       setErrors(defaultErrors);
       const checkResult = defaultErrors;
       if (!password.length) {
@@ -287,7 +262,7 @@ export default function Login() {
       }
     }
     return (
-      <form autoComplete="off" className="login-password-form">
+      <form onSubmit={submit} autoComplete="off" className="login-password-form">
         <h2>Регистрация</h2>
         <div className="caption-description">Данный номер телефона еще не зарегистрирован, задайте пароль для входа</div>
         <div className="input-container">

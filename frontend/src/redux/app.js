@@ -12,7 +12,7 @@ export const app = createSlice({
     },
     completeTour: (state) => {
       state.isTourCompleted = true;
-    }
+    },
   }
 });
 
