@@ -27,6 +27,8 @@ const sliderSettings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
+  centerMode: true,
+  centerPadding: '50px',
   adaptiveHeight: true,
   responsive: [
     {
