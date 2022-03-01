@@ -1,2 +1,5 @@
 .idea
-was.txt
+info.txt
+/backend
+!/backend/api.php
+/mobile
