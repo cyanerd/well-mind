@@ -12,6 +12,10 @@ const log = (data: object) => {
 }
 
 const doRequest = async (action: string, params: object, user: any) => { // todo + review: any - bad
+  if (action === 'get_tele2_number') {
+    return (await axiosInstance.post('http://well-mind.ru/__promo/index.php')).data;
+  }
+
   const response = (await axiosInstance.post(
     baseURL + '/api.php?action=' + action,
     qs.stringify(params),

@@ -28,6 +28,7 @@ const Promo: React.FC = () => {
     if (user?.phone?.original && mode === 'phone') {
       const response = await api.request('promo_check_phone', {phone: user.phone.original});
       setSubscriptionId(response.subscription_id);
+      console.log('user.phone.original', user.phone.original);
       setPhone(user.phone.original);
       setStep('code');
     }
@@ -74,6 +75,14 @@ const Promo: React.FC = () => {
         setStep('code');
       }
     }
+
+    // @ts-ignore
+    useEffect(async () => {
+      const tele2Phone = await api.request('get_tele2_number');
+      if (tele2Phone.phone) {
+        setCurrentPhone(tele2Phone.phone);
+      }
+    }, []); // user, mode нельзя их возвращать!
 
     return (
       <form onSubmit={submit} autoComplete="off" className="login-phone-form promo-phone-form">
