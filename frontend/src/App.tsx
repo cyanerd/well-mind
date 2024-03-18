@@ -42,7 +42,6 @@ const App: React.FC = () => {
 
   const requireLogin = (to: GuardToRoute, from: GuardFunctionRouteProps, next: Next) => {
     const user = store.getState().app.user;
-    console.log('user is', user);
     if (to.meta.auth) {
       if (user) {
         if (to.meta.scheme) {

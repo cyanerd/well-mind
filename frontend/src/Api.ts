@@ -35,7 +35,7 @@ const request = async (action: string, params: object = {}) => {
   try {
     return doRequest(action, params, user);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 

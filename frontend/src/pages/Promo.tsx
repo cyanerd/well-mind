@@ -28,7 +28,6 @@ const Promo: React.FC = () => {
     if (user?.phone?.original && mode === 'phone') {
       const response = await api.request('promo_check_phone', {phone: user.phone.original});
       setSubscriptionId(response.subscription_id);
-      console.log('user.phone.original', user.phone.original);
       setPhone(user.phone.original);
       setStep('code');
     }
@@ -131,8 +130,11 @@ const Promo: React.FC = () => {
     const history = useHistory();
 
     useEffect(() => {
+      console.log('renderWidget');
       const renderWidget = async () => {
+        console.log('renderWidget2');
         const yandexToken = await api.request('yandex_confirmation_token');
+        console.log('yandexToken', yandexToken);
         if (yandexToken.token) {
           // @ts-ignore
           const checkout = new window.YooMoneyCheckoutWidget({
@@ -140,9 +142,10 @@ const Promo: React.FC = () => {
             return_url: 'https://well-mind.ru/promo?mode=success',
             embedded_3ds: false,
             error_callback(error: any) {
-              console.log(error);
+              console.error(error);
             }
           });
+          console.log('checkout', checkout);
           checkout.render('payment-form');
         }
       }
