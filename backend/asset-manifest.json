@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.764cb1fc.chunk.css",
-    "main.js": "/static/js/main.9745c81e.chunk.js",
-    "main.js.map": "/static/js/main.9745c81e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.732fa263.js",
-    "runtime-main.js.map": "/static/js/runtime-main.732fa263.js.map",
-    "static/css/2.3dadfcff.chunk.css": "/static/css/2.3dadfcff.chunk.css",
-    "static/js/2.5f99f60d.chunk.js": "/static/js/2.5f99f60d.chunk.js",
-    "static/js/2.5f99f60d.chunk.js.map": "/static/js/2.5f99f60d.chunk.js.map",
-    "static/js/3.ec3e931b.chunk.js": "/static/js/3.ec3e931b.chunk.js",
-    "static/js/3.ec3e931b.chunk.js.map": "/static/js/3.ec3e931b.chunk.js.map",
+    "main.css": "/static/css/main.5863e691.chunk.css",
+    "main.js": "/static/js/main.0a7fd687.chunk.js",
+    "main.js.map": "/static/js/main.0a7fd687.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.90210fac.js",
+    "runtime-main.js.map": "/static/js/runtime-main.90210fac.js.map",
+    "static/css/2.2fc0a5d0.chunk.css": "/static/css/2.2fc0a5d0.chunk.css",
+    "static/js/2.ff45be74.chunk.js": "/static/js/2.ff45be74.chunk.js",
+    "static/js/2.ff45be74.chunk.js.map": "/static/js/2.ff45be74.chunk.js.map",
+    "static/js/3.0457bf53.chunk.js": "/static/js/3.0457bf53.chunk.js",
+    "static/js/3.0457bf53.chunk.js.map": "/static/js/3.0457bf53.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.3dadfcff.chunk.css.map": "/static/css/2.3dadfcff.chunk.css.map",
-    "static/css/main.764cb1fc.chunk.css.map": "/static/css/main.764cb1fc.chunk.css.map",
-    "static/js/2.5f99f60d.chunk.js.LICENSE.txt": "/static/js/2.5f99f60d.chunk.js.LICENSE.txt",
+    "static/css/2.2fc0a5d0.chunk.css.map": "/static/css/2.2fc0a5d0.chunk.css.map",
+    "static/css/main.5863e691.chunk.css.map": "/static/css/main.5863e691.chunk.css.map",
+    "static/js/2.ff45be74.chunk.js.LICENSE.txt": "/static/js/2.ff45be74.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/tour-arrow.5711ff1b.svg",
     "static/media/AppMobile.css": "/static/media/main-page-background-mobile.e3ff95bf.png",
     "static/media/back.fdd84daf.svg": "/static/media/back.fdd84daf.svg",
@@ -30,10 +30,10 @@
     "static/media/preloader.3982b942.svg": "/static/media/preloader.3982b942.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.732fa263.js",
-    "static/css/2.3dadfcff.chunk.css",
-    "static/js/2.5f99f60d.chunk.js",
-    "static/css/main.764cb1fc.chunk.css",
-    "static/js/main.9745c81e.chunk.js"
+    "static/js/runtime-main.90210fac.js",
+    "static/css/2.2fc0a5d0.chunk.css",
+    "static/js/2.ff45be74.chunk.js",
+    "static/css/main.5863e691.chunk.css",
+    "static/js/main.0a7fd687.chunk.js"
   ]
 }

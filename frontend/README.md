@@ -1,2 +1,2 @@
-node v16
+node v18
 yarn

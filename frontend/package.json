@@ -34,9 +34,9 @@
     "web-vitals": "1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build-clear": "react-scripts build",
-    "build": "react-scripts build && rm -rf ../backend/assets && rm -rf ../backend/static && rm ../backend/index.html && mv build/* ../backend/",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build-clear": "react-scripts --openssl-legacy-provider build",
+    "build": "react-scripts --openssl-legacy-provider build && rm -rf ../backend/assets && rm -rf ../backend/static && rm ../backend/index.html && mv build/* ../backend/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
