@@ -8,6 +8,7 @@ import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import {RootState} from '../redux/store';
+import EditableContent from '../components/EditableContent';
 
 interface IProgramItem {
   name?: string,
@@ -62,18 +63,10 @@ const ProgramPage: React.FC = () => {
               <h2>Библиотека</h2>
               <LibraryCards/>
             </div>
-            <h2>Проконсультируйтесь<br/> с психологом</h2>
+            <h2><EditableContent code="main18" /></h2>
             <div className="program-text">
               <div className="_two-columns">
-                <p>Остались вопросы по результатам теста или выполнению программы? Чувствуете, что вам необходима помощь со
-                  стороны?
-                  Вы можете получить отдельную консультацию или индивидуальные занятия в дополнение к вашей основной
-                  программе. </p>
-                <p>Мы предлагаем вам только дипломированных специалистов с реальным опытом работы, прошедших собеседование с
-                  командой
-                  Well-mind<br/>
-                  <span style={{color: '#0a005a'}}>Формат общения на выбор: очно или онлайн.</span>
-                </p>
+                <EditableContent code="main19" />
               </div>
             </div>
             <div className="centered-btn-container" style={{marginBottom: 0}}>

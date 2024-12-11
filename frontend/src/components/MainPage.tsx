@@ -6,6 +6,7 @@ import Accordion from '../components/accordion/Accordion';
 import Slider from 'react-slick';
 import {sliderSettings} from '../helper';
 import ProgramLink from '../components/app/ProgramLink';
+import EditableContent from '../components/EditableContent';
 
 const MainPage: React.FC = () => {
   return (
@@ -14,13 +15,15 @@ const MainPage: React.FC = () => {
         <div className="about-section-second-background">
           <div className="about-section section">
             <div className="row-1">
-              <h2>Обретите гармонию,<br/> не переплачивая<br/> за психологов</h2>
+              <h2>
+                <EditableContent code="main1" />
+              </h2>
               <div className="text">
                 <div className="hide-mobile">
-                  Устали от постоянного стресса, исчерпали свой внутренний ресурс или просто хотите наладить отношения с близкими?
+                  <EditableContent code="main2" />
                 </div>
                 <div className="hide-desktop">
-                  Устали от стресса, исчерпали внутренний ресурс или хотите<br/> наладить отношения?
+                  <EditableContent code="main3" />
                 </div>
               </div>
               <ProgramLink linkProp="to" component={
@@ -29,9 +32,7 @@ const MainPage: React.FC = () => {
             </div>
             <div className="row-2">
               <div className="text">
-                Мы подберем для вас уникальную программу из простых и увлекательных упражнений и поможем вам преодолеть
-                трудности
-                самостоятельно, шаг за шагом - как, где и когда вам удобно.
+                <EditableContent code="main4" />
               </div>
               <Link to="/test" className="btn hide-desktop">Подобрать программу</Link>
             </div>
@@ -43,61 +44,46 @@ const MainPage: React.FC = () => {
         <Slider {...sliderSettings} className="problems-list">
           <div className="problem">
             <img src={imagePath('problems/1.png')} alt="Well mind" width="194px" style={{paddingTop: '16px'}}/>
-            <span>Снять тревогу и<br/> стресс</span>
+            <span><EditableContent code="main5" /></span>
           </div>
           <div className="problem">
             <img src={imagePath('problems/2.png')} alt="Well mind" width="180px" style={{paddingTop: '17px'}}/>
-            <span>Восстановить<br/> душевный баланс</span>
+            <span><EditableContent code="main6" /></span>
           </div>
           <div className="problem">
             <img src={imagePath('problems/3.png')} alt="Well mind" width="233px" style={{paddingTop: '13px'}}/>
-            <span>Обрести жизненный<br/> смысл</span>
+            <span><EditableContent code="main7" /></span>
           </div>
           <div className="problem">
             <img src={imagePath('problems/4.png')} alt="Well mind" width="275px" style={{top: '-29px'}}/>
-            <span style={{marginTop: '-14px'}}>Наладить отношения с<br/> близкими, друзьями и<br/> коллегами</span>
+            <span style={{marginTop: '-14px'}}><EditableContent code="main8" /></span>
           </div>
           <div className="problem">
             <img src={imagePath('problems/5.png')} alt="Well mind" width="215px" style={{top: '-29px'}}/>
-            <span style={{marginTop: '-14px'}}>Найти ресурс для<br/> достижения ваших<br/> целей</span>
+            <span style={{marginTop: '-14px'}}><EditableContent code="main9" /></span>
           </div>
           <div className="problem">
             <img src={imagePath('problems/6.png')} alt="Well mind" width="277px" style={{top: '-10px'}}/>
-            <span style={{marginTop: '5px'}}>И многое другое, что<br/> мешает радоваться<br/> жизни</span>
+            <span style={{marginTop: '5px'}}><EditableContent code="main10" /></span>
           </div>
         </Slider>
       </div>
       <div className="about-section section">
         <div className="row-3">
-          <h2>Следуйте своему<br/> личному плану</h2>
+          <h2><EditableContent code="main11" /></h2>
           <div className="text">
-            <ul>
-              <li>Программа работы по результатам теста, составленного профессиональным психологом</li>
-              <li>Уникальные и простые занятия на каждый день</li>
-              <li>Арт- и музыкальная терапия, упражнения в игровой форме</li>
-              <li>Полезные статьи по психологии для осознанной работы над собой</li>
-              <li>Обратная связь по любым вопросам</li>
-            </ul>
+            <EditableContent code="main12" />
           </div>
         </div>
         <div className="row-4">
           <div>
-            <h2>Подберите психолога для<br/> консультаций</h2>
+            <h2><EditableContent code="main13" /></h2>
             <div className="text">
               <div className="hide-mobile">
-                <p>Вы сможете получить личные занятия в дополнение к основной программе.</p>
-                <p>Только дипломированные специалисты с реальным опытом работы, прошедшие собеседование с командой
-                  Well-mind!
-                </p>
-                <p>Формат занятий на выбор:<br/> <i>очно или онлайн</i></p>
+                <EditableContent code="main14" />
               </div>
               <div className="hide-desktop">
-                <ul>
-                  <li>Вы сможете получить личные занятия в дополнение к основной программе.</li>
-                  <li>Формат занятий на выбор:<br/> <i>очно или онлайн</i></li>
-                </ul>
-                <p style={{textAlign: 'center'}}><b>Только дипломированные специалисты</b> с реальным опытом работы, прошедшие
-                  собеседование с командой Well-mind!</p>
+                <EditableContent code="main15" />
               </div>
             </div>
             <Link to="/psychologists" className="btn hide-mobile">Подобрать психолога</Link>
@@ -107,7 +93,7 @@ const MainPage: React.FC = () => {
       </div>
       <div className="how-section">
         <div className="section">
-          <h2>Well-mind устроен<br/> легко и удобно</h2>
+          <h2><EditableContent code="main16" /></h2>
           <div className="how-list">
             <div className="how-item">
               <div className="how-content">
@@ -130,7 +116,7 @@ const MainPage: React.FC = () => {
             <div className="how-item">
               <div className="how-content">
                 <div>
-                  <div className="how-title">Снова радуйтесь жизни вместе с Well-mind!</div>
+                  <div className="how-title"><EditableContent code="main17" /></div>
                 </div>
               </div>
               <img src={imagePath('how-3.png')} alt="Well mind"/>

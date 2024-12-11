@@ -12,11 +12,13 @@ export const app = createSlice({
       },
       login: '',
       email: '',
+      is_admin: false,
       subscription: {
         active: false,
         payment: ''
       }
-    }
+    },
+    content: null,
   },
   reducers: {
     setUser: (state, {payload}) => {
@@ -25,9 +27,12 @@ export const app = createSlice({
     completeTour: (state) => {
       state.isTourCompleted = true;
     },
+    setContent: (state, { payload }) => {
+      state.content = payload;
+    },
   }
 });
 
-export const {setUser, completeTour} = app.actions;
+export const {setUser, completeTour, setContent} = app.actions;
 
 export default app.reducer;

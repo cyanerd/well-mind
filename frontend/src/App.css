@@ -1796,5 +1796,26 @@ input[type="text"], input[type="password"] {
     width: 100%;
 }
 
-.consult-inputs {
+.editable-content {
+    outline: 4px solid transparent;
+    transition: outline-color 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.editable-content:hover {
+    outline-color: #6e9fff;
+}
+
+.fancybox__content {
+    padding: 24px;
+}
+
+textarea {
+    width: 600px;
+    height: 200px;
+    resize: vertical;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
 }

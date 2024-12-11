@@ -1,6 +1,7 @@
 import {ReactComponent as LogoWhite} from '../../images/logo-white.svg';
 import {Link} from 'react-router-dom';
 import React from 'react';
+import EditContentModal from '../EditContentModal';
 
 const Footer: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+      <EditContentModal />
     </div>
   );
 }

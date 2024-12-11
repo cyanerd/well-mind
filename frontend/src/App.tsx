@@ -12,6 +12,7 @@ import {setUser} from './redux/app';
 import {useDispatch} from 'react-redux';
 import store from './redux/store';
 import React from 'react';
+import { fetchContent } from './redux/fetchContent';
 
 // pages
 import Main from './pages/Main';
@@ -39,6 +40,10 @@ import './AppMobile.css';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchContent());
+  }, [dispatch]);
 
   const requireLogin = (to: GuardToRoute, from: GuardFunctionRouteProps, next: Next) => {
     const user = store.getState().app.user;

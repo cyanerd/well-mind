@@ -1,5 +1,6 @@
 import Default from '../layouts/Default';
 import React from 'react';
+import EditableContent from '../components/EditableContent';
 
 const Contacts: React.FC = () => {
   return (
@@ -9,13 +10,13 @@ const Contacts: React.FC = () => {
           <h2>Контакты</h2>
           <div className="contacts-blocks-container">
             <div className="contacts-left-block">
-              <p>Свяжитесь с нами</p>
-              <p><a href="mailto:info@well-mind.ru">E-mail: info@well-mind.ru</a></p>
+              <p><EditableContent code="contacts1" /></p>
+              <p><EditableContent code="contacts2" /></p>
             </div>
             <div className="contacts-right-block">
               <p className="hide-desktop">Владелец:</p>
-              <p><span className="hide-mobile">Владелец: </span>ИП Егоров Александр Андреевич</p>
-              <p>ОГРНИП: 319774600117874</p>
+              <p><span className="hide-mobile">Владелец: </span><EditableContent code="contacts3" /></p>
+              <p><EditableContent code="contacts4" /></p>
             </div>
           </div>
         </div>
