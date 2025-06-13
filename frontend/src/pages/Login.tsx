@@ -16,6 +16,7 @@ const Login: React.FC = () => {
   const gotoFromPromo = getURLParamValue('goto');
   const [step, setStep] = useState('phone');
   const [phone, setPhone] = useState('');
+  const [code, setCode] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -164,9 +165,8 @@ const Login: React.FC = () => {
     );
   }
 
-  const RestoreFormCode: React.FC<{ setStep: Function, phone: string }> = ({setStep, phone}) => {
+  const RestoreFormCode: React.FC<{ setStep: Function, setCode: Function, phone: string, code: string }> = ({setStep, setCode, phone, code}) => {
     const SECONDS = 30;
-    const [code, setCode] = useState('');
     const defaultErrors = {code: ''};
     const [errors, setErrors] = useState(defaultErrors);
     const [isCodeSubmitDisabled, setCodeSubmitDisabled] = useState(true);
@@ -306,8 +306,8 @@ const Login: React.FC = () => {
         <div className="left-block">
           {step === 'phone' && <PhoneForm setPhone={(e: string) => setPhone(e)} setStep={(e: string) => setStep(e)}/>}
           {step === 'password' && <PasswordForm phone={phone} setStep={(e: string) => setStep(e)}/>}
-          {step === 'restore' && <RestoreFormCode phone={phone} setStep={(e: string) => setStep(e)}/>}
-          {step === 'new_password' && <RestoreFormPassword phone={phone}/>}
+          {step === 'restore' && <RestoreFormCode code={code} setCode={(e: string) => setCode(e)} phone={phone} setStep={(e: string) => setStep(e)}/>}
+          {step === 'new_password' && <RestoreFormPassword code={code} phone={phone}/>}
           {step === 'reg' && <RegForm phone={phone}/>}
         </div>
       </div>

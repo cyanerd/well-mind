@@ -9,10 +9,11 @@ import {getURLParamValue} from '../../helper';
 
 interface IRestoreFormPasswordProps {
   phone: string,
+  code: string,
   mode?: string
 }
 
-const RestoreFormPassword: React.FC<IRestoreFormPasswordProps> = ({phone, mode = 'restore'}) => {
+const RestoreFormPassword: React.FC<IRestoreFormPasswordProps> = ({code, phone, mode = 'restore'}) => {
   const [password, setPassword] = useState('');
   const gotoFromPromo = getURLParamValue('goto');
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -52,7 +53,7 @@ const RestoreFormPassword: React.FC<IRestoreFormPasswordProps> = ({phone, mode =
       setErrors({...checkResult});
     }
     if (checkResult.password || checkResult.passwordConfirm) return false;
-    const response = await api.request('change_password', {phone, password, password_confirm: passwordConfirm});
+    const response = await api.request('change_password', {phone, code, password, password_confirm: passwordConfirm});
 
     if (response?.status === true) {
       login(response.user);
