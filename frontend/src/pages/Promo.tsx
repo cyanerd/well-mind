@@ -203,7 +203,7 @@ const Promo: React.FC = () => {
       const checkResult = defaultErrors;
       const response = await api.request('promo_check_code', {phone, code, subscription_id: subscriptionId});
 
-      if (response.result === false) {
+      if (response.status === false) {
         checkResult.code = 'Код неверный';
         setErrors({...checkResult});
         return false;

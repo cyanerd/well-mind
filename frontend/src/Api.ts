@@ -17,7 +17,7 @@ const doRequest = async (action: string, params: object, user: any) => { // todo
   }
 
   const response = (await axiosInstance.post(
-    baseURL + '/api.php?action=' + action,
+    baseURL + '/api/api.php?action=' + action,
     qs.stringify(params),
     (user?.login && user?.token ? {
       headers: {

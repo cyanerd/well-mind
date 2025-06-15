@@ -165,9 +165,10 @@ const Login: React.FC = () => {
     );
   }
 
-  const RestoreFormCode: React.FC<{ setStep: Function, setCode: Function, phone: string, code: string }> = ({setStep, setCode, phone, code}) => {
+  const RestoreFormCode: React.FC<{ setStep: Function, setCode: Function, phone: string }> = ({setStep, setCode, phone}) => {
     const SECONDS = 30;
     const defaultErrors = {code: ''};
+    const [code, setLocalCode] = useState('');
     const [errors, setErrors] = useState(defaultErrors);
     const [isCodeSubmitDisabled, setCodeSubmitDisabled] = useState(true);
     const [time, setTime] = useState(SECONDS);
@@ -199,6 +200,7 @@ const Login: React.FC = () => {
         return false;
       }
       setStep('new_password');
+      setCode(code);
     }
     return (
       <form onSubmit={submit} autoComplete="off" className="login-password-form">
@@ -212,7 +214,7 @@ const Login: React.FC = () => {
               placeholder="Код"
               value={code}
               onChange={(e) => {
-                setCode(e.target.value);
+                setLocalCode(e.target.value);
                 setErrors({...errors, code: ''});
               }}
               error={errors.code}
@@ -306,7 +308,7 @@ const Login: React.FC = () => {
         <div className="left-block">
           {step === 'phone' && <PhoneForm setPhone={(e: string) => setPhone(e)} setStep={(e: string) => setStep(e)}/>}
           {step === 'password' && <PasswordForm phone={phone} setStep={(e: string) => setStep(e)}/>}
-          {step === 'restore' && <RestoreFormCode code={code} setCode={(e: string) => setCode(e)} phone={phone} setStep={(e: string) => setStep(e)}/>}
+          {step === 'restore' && <RestoreFormCode setCode={(e: string) => setCode(e)} phone={phone} setStep={(e: string) => setStep(e)}/>}
           {step === 'new_password' && <RestoreFormPassword code={code} phone={phone}/>}
           {step === 'reg' && <RegForm phone={phone}/>}
         </div>
